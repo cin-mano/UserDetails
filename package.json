@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.17.2",
     "helmet": "^5.0.2",
+    "image-downloader": "^4.0.3",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.9",

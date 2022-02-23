@@ -1,6 +1,6 @@
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
-
+const download=require("image-downloader");
 const {
   createSchema,
   updateSchema,
@@ -228,6 +228,24 @@ const uploadImage=(req,res,next)=>{
     data:req.file
   })
 }
+const downloadImage=(req,res,next)=>{
+
+  const options = {
+    url: req.body.url,
+    dest: 'uploads/'                // will be saved to /path/to/dest/image.jpg
+  }
+  
+  download.image(options)
+    .then(({ filename }) => {
+      console.log('Saved to', filename)  // saved to /path/to/dest/image.jpg
+    })
+    .catch((err) => console.error(err))
+
+    res.status(200).send({
+      status:200,
+      message:"downloaded succesfully"
+    })
+}
 
 module.exports = {
   registered,
@@ -235,5 +253,6 @@ module.exports = {
   selectRegistered,
   deleteRegistered,
   loginRegistered,
-  uploadImage
+  uploadImage,
+  downloadImage
 };

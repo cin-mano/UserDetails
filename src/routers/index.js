@@ -43,7 +43,7 @@ router.post("/login", userControl.loginRegistered);
 
 router.post("/uploadimage",auth.checkToken,upload.single('userImage'),userControl.uploadImage);
 
-router.post("/downloadimage",userControl.downloadImage);
+router.post("/downloadimage",auth.checkToken,userControl.downloadImage);
 //family routes
 router.post("/registerfamily",auth.checkToken, familyControl.registerFamily);
 router.patch("/updatefamily",auth.checkToken, familyControl.updateFamily);

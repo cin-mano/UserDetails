@@ -232,12 +232,12 @@ const downloadImage=(req,res,next)=>{
 
   const options = {
     url: req.body.url,
-    dest: 'uploads/'                // will be saved to /path/to/dest/image.jpg
+    dest: 'uploads/'                // will be saved
   }
   
   download.image(options)
     .then(({ filename }) => {
-      console.log('Saved to', filename)  // saved to /path/to/dest/image.jpg
+      console.log('Saved to', filename)  // saved
     })
     .catch((err) => console.error(err))
 
